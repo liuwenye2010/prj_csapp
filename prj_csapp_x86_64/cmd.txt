@@ -1,0 +1,26 @@
+#https://blog.csdn.net/pengfei240/article/details/55228228
+
+$ make main_sections
+
+$ make main_normal
+
+$ ll main_*
+
+
+$ make clean 
+$ make main_sections
+$ readelf -t main.o
+
+
+$ make main_sections
+$ make main_normal
+$ readelf -a main_normal | grep fun_
+$ readelf -a main_sections | grep fun_
+
+
+#windows cmd --> C:\Program Files (x86)\CodeBlocks\MinGW\bin 
+#gcc -v
+gcc -ffunction-sections -fdata-sections -c C:\cygwin\home\johl\exprj\prj_makefile\test_ffuntion\main.c
+gcc -Wl,--gc-sections -o $@ C:\cygwin\home\johl\exprj\prj_makefile\test_ffuntionmain.o 
+
+gcc  -c C:\cygwin\home\johl\exprj\prj_makefile\test_ffuntion\main.c
